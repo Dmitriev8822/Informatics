@@ -99,7 +99,7 @@ void optimizer(int cnt)
 }
 
 int main()
-{   
+{
     int len = getInputLength(0);
     optimizer(len);
     return 0;
