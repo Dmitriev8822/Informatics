@@ -4,40 +4,38 @@ using namespace std;
 
 int main()
 {
-    int n1, n2, m1[101], m2[101], m3[101];
+    int N[101];
+    int M[101];
+    int n,m;
+    cin >> n;
+    for(int i = 0; i < n; i++)
+        cin >> N[i];
+    cin >> m;
+    for(int i = 0; i < m; i++)
+        cin >> M[i];
 
-    cin >> n1;
-    for(int i = 0; i < n1; i++)
-        cin >> m1[i];
-
-    cin >> n2;
-    for(int i = 0; i < n2; i++)
-        cin >> m2[i];
-
-    int m, j;
-    bool f = false;
-    for(int i = 0; i < n1; i++)
+    bool first = true;
+    for(int i = 0; i < n; i++)
     {
-        for(;;)
+        int value = N[i];
+        int p = 0;
+        for(; p < m; p++)
         {
-            if(f)
-            {
-                m3[i] = j;
-                f = false;
+            if(M[p] == value)
                 break;
-            }
-            break;
         }
-        j = m1[i];
-        for(int i = 0; i < n2; i++)
+        if(p == m)
         {
-            if(j == m2[i])
+            if(!first)
+                cout << " " << value;
+            else
             {
-                bool f = true;
-                break;
+                cout << value;
+                first = false;
             }
+        }
     }
-    }
-    for(int i = 0; i
+    if(!first)
+        cout << endl;
     return 0;
 }
