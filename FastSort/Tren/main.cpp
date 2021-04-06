@@ -14,7 +14,7 @@ void fsort(int a[], int n)
                 i++; j--;
             }
     } while(i <= j);
-    if(j > 0) fsort(a, j);
+    if(j > 0) fsort(a, j+1);
     if(n > i) fsort(a+i, n-i);
 }
 
