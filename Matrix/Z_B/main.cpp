@@ -3,41 +3,56 @@
 
 using namespace std;
 
-/*void fsort(int S[], int n)
+void printRow(int M[100][4], short row)
 {
-    int i=0, j=n-1, spp, mid;
-    mid = S[n/2];
-    do{
-            while(S[i] < mid) i++;
-            while(S[j] > mid) j--;
-            if(i <= j)
-            {
-                spp = S[i]; S[i] = S[j]; S[j] = spp;
-                i++; j--;
-            }
-    }while(i <= j);
-    if(j > 0) fsort(S, j+1);
-    if(n > i) fsort(S+i, n-i);
+    cout << M[row][0] << " " << M[row][1] << " " << M[row][2] << endl; //" \t" << M[row][3] << endl;
 }
-*/
+
+void printMatrix(int M[100][4], short n)
+{
+    for(short row=0; row<n; row++)
+        printRow(M,n - row - 1);
+}
+
 int main()
 {
-    int A[100][100];
-    int S[100];
-    int n;
+    int A[100][4];
+    short n;
     cin >> n;
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j <= 3; j++)
+
+    for(short row = 0; row < n; row++)
+        A[row][3] = 0;
+
+    for(int rec = 0; rec < n; rec++)
+    {
+        short h,m,s;
+        cin >> h >> m >> s;
+
+        int sec = h*3600 + m*60 + s;
+        for(short row = 0; row < n; row++)
         {
-            cin >> A[i][j];
-            if(j == 3)
-                S[i] += A[i][j];
-            S[i] = (S[i] + A[i][j]) * 60;
+            if(A[row][3] >= sec)
+                continue;
+            int t;
+            t = A[row][0];
+            A[row][0] = h;
+            h = t;
+
+            t = A[row][1];
+            A[row][1] = m;
+            m = t;
+
+            t = A[row][2];
+            A[row][2] = s;
+            s = t;
+
+            t = A[row][3];
+            A[row][3] = sec;
+            sec = t;
         }
-        cout << S[0] << endl;
     }
-    //fsort(S, n);
-    for(int i = 0; i < n; i++)
-        cout << S[i] << endl;
+    cout << endl;
+    printMatrix(A, n);
+    cout << endl;
     return 0;
 }
