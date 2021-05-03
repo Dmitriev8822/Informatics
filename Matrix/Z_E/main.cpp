@@ -9,7 +9,7 @@ int main()
     int n;
     cin >> n;
     for(int i = 0; i < n; i++){
-        if(ss1 != 0 && ss != ss1)
+        if(ss1 != 0 || ss != ss1)
         {
             cout << "NO" << endl;
             return 0;
@@ -24,7 +24,7 @@ int main()
         }
         for(int j = 0; i < n; j++)
         {
-            if(kpss1 != 0 && kpss != kpss1)
+            if(kpss1 != 0 || kpss != kpss1)
             {
                 cout << "NO" << endl;
                 return 0;
