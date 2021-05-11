@@ -8,14 +8,13 @@ int main()
     int mini = 2147483647;
     cin >> n >> m;
 
-    int **A = new int *[n];
     for(int i = 0; i < n; i++)
-        A[i] = new int[n];
-    for(int i = 0; i < n; i++)
-        for(int j = 0; j < m; j++){
-            cin >> A[i][j];
-            if(A[i][j] < mini)
-                mini = A[i][j];
+        for(int j = 0; j < m; j++)
+        {
+            int k;
+            cin >> k;
+            if(k < mini)
+                mini = k;
         }
     cout << mini << endl;
     return 0;

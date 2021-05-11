@@ -4,24 +4,23 @@ using namespace std;
 
 int main()
 {
-    int n, m;
+    int X, Y;
     int x, y;
-    cin >> n >> m;
-    int **A = new int *[n];
-    for(int i = 0; i < n; i++)
-    {
-        A[i] = new int[n];
-    }
-    for(int i = 0; i < n; i++)
-        for(int j = 0; j < m; j++)
+    cin >> x >> y;
+
+    for(int i = 0; i < x; i++)
+        for(int j = 0; j < y; j++)
         {
-            cin >> A[i][j];
-            if(A[i][j] == 0)
+            int V;
+            cin >> V;
+            if(V == 0)
             {
-                x = i;
-                y = j;
+                X = i;
+                Y = j;
             }
         }
-    cout << x+1 << " " << y+1 << endl;
+
+    cout << X+1 << " " << Y+1 << endl;
+
     return 0;
 }
