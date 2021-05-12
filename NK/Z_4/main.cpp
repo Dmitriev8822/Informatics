@@ -37,7 +37,6 @@ int main()
 {
     char str[82];
     cin.getline(str, 81);
-    cout << str << endl;
     char *p = &str[0];
     while(*p != 0)
     {

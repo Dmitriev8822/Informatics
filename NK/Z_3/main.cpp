@@ -1,26 +1,6 @@
 #include <iostream>
 
-
 using namespace std;
-
-/*void printASCII()
-{
-    int index = 0;
-    for(int j=0; j<32; j++)
-    {
-        for(int i=0; i<8; i++)
-        {
-            char c = index;
-            cout << index++ << " " << c << " ";
-        }
-        cout << endl;
-    }
-}
-*/
-
-
-using namespace std;
-
 
 int main()
 {
@@ -48,7 +28,7 @@ int main()
     for(int j=0; j < 26; j++)
     {
         char c = static_cast<char>(j+65);
-        cout << c << " - " << Cnt[j] << endl;
+        cout << c << " \u2013 " << Cnt[j] << endl;
     }
     return 0;
 }
