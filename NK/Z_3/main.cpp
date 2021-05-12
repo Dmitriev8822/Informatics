@@ -1,5 +1,5 @@
 #include <iostream>
-<<<<<<< HEAD
+
 
 using namespace std;
 
@@ -18,10 +18,10 @@ using namespace std;
 }
 */
 
-=======
+
 using namespace std;
 
->>>>>>> b181c18d75cee3b1e01c786807ae61cdf13f4248
+
 int main()
 {
     int Cnt[26];
