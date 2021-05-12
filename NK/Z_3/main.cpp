@@ -1,6 +1,27 @@
 #include <iostream>
+<<<<<<< HEAD
+
 using namespace std;
 
+/*void printASCII()
+{
+    int index = 0;
+    for(int j=0; j<32; j++)
+    {
+        for(int i=0; i<8; i++)
+        {
+            char c = index;
+            cout << index++ << " " << c << " ";
+        }
+        cout << endl;
+    }
+}
+*/
+
+=======
+using namespace std;
+
+>>>>>>> b181c18d75cee3b1e01c786807ae61cdf13f4248
 int main()
 {
     int Cnt[26];
