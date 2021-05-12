@@ -207,6 +207,25 @@ void filter4(char *in)
     }
 }
 
+char* getDelimiter(char *p)
+{
+    char delimiters[] = {" .,?!:-;()\'\""};
+    int dsize = strlen(delimiters);
+
+    while(1)
+    {
+        char c = *p;
+        if( c == 0)
+            return p;
+
+        for(int j=0; j < dsize; j++)
+        {
+            if(c == delimiters[j])
+                return p;
+        }
+        p++;
+    }
+}
 
 int main()
 {
@@ -215,12 +234,42 @@ int main()
     while(cin.peek() != '\n')
     {
         cin >> strIn;
-        filter4(strIn);
-        filter1(strIn);
-        filter2(strIn);
-        filter3(strIn);
-        if(strlen(strIn) > 0)
-            cout << strIn << ' ';
+        bool f = false;
+        char *p = strIn;
+        while(1)
+        {
+            if(strlen(p) == 0)
+                break;
+            char d;
+            char *t = getDelimiter(p);
+            if(t == p)
+            {
+                d = *t;
+                cout << d;
+                f = true;
+                p++;
+                continue;
+            }
+            d = *t;
+            *t = 0;
+            filter4(p);
+            filter1(p);
+            filter2(p);
+            filter3(p);
+            if(strlen(p))
+            {
+                cout << p;
+                f = true;
+            }
+            if(d != 0)
+                *t = d;
+            else
+                break;
+
+            p = t;
+        }
+        if(f)
+            cout << ' ';
     }
     cout << endl;
 
