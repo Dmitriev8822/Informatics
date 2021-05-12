@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -9,9 +10,10 @@ int main()
         Cnt[j] = 0;
 
     int c = 0;
-    while(c != '\n')
+    ifstream fin("stdin");
+    while(!fin.eof())
     {
-        c = cin.get();
+        c = fin.get();
         if(c < 0)
             break;
 
