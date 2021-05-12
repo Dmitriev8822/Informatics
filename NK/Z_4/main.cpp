@@ -21,12 +21,15 @@ char* findNumber(char *p, int *res)
 void outsymbol(char c)
 {
     static int nd = 0;
+    if(nd == 0 && c == '\n')
+        return;
+
     cout << c;
     nd++;
     if(nd > 39)
     {
-        nd = 0;
-        cout << endl;
+       nd = 0;
+       cout << endl;
     }
 }
 
@@ -35,7 +38,6 @@ int main()
     char str[82];
     cin.getline(str, 80);
     char *p = &str[0];
-    int nd = 0;
     while(*p != 0)
     {
         int n = 0;
@@ -45,5 +47,7 @@ int main()
         for(int i = 1; i < n; i++)
             outsymbol(h);
     }
+    outsymbol('\n');
+
     return 0;
 }

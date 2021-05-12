@@ -1,4 +1,5 @@
 #include <iostream>
+<<<<<<< HEAD
 
 using namespace std;
 
@@ -17,16 +18,23 @@ using namespace std;
 }
 */
 
+=======
+using namespace std;
+
+>>>>>>> b181c18d75cee3b1e01c786807ae61cdf13f4248
 int main()
 {
     int Cnt[26];
     for(int j=0; j < 26; j++)
         Cnt[j] = 0;
 
-    char c = 0;
+    int c = 0;
     while(c != '\n')
     {
-        cin.get(c);
+        c = cin.get();
+        if(c < 0)
+            break;
+
         if((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
         {
             int i = c - 65;
@@ -39,7 +47,7 @@ int main()
 
     for(int j=0; j < 26; j++)
     {
-        char c = j+65;
+        char c = static_cast<char>(j+65);
         cout << c << " - " << Cnt[j] << endl;
     }
     return 0;
