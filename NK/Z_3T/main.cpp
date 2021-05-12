@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -8,10 +9,13 @@ int main()
     for(int j=0; j < 26; j++)
         Cnt[j] = 0;
 
+    ifstream in("input.txt");
+
     int c = 0;
     while(c != '\n')
     {
-        c = cin.get();
+        in >> c
+        //c = cin.get();
         if(c < 0)
             break;
 
@@ -24,7 +28,7 @@ int main()
             Cnt[i] = ++t;
         }
     }
-
+    in.close();
 
     for(int j=0; j < 26; j++)
     {
