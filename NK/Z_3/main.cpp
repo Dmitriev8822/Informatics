@@ -1,8 +1,8 @@
 #include <iostream>
-#
+
 using namespace std;
 
-void printASCII()
+/*void printASCII()
 {
     int index = 0;
     for(int j=0; j<32; j++)
@@ -10,11 +10,12 @@ void printASCII()
         for(int i=0; i<8; i++)
         {
             char c = index;
-            cout << index++ << " " << c << "   ";
+            cout << index++ << " " << c << " ";
         }
         cout << endl;
     }
 }
+*/
 
 int main()
 {
