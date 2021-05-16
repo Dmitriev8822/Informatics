@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void oneShiftLeft(char *dest)
+void oneShiftLeft(char *dest , char c)
 {
     char *src;
     src = dest;
@@ -12,6 +12,7 @@ void oneShiftLeft(char *dest)
     {
         *dest++ = *src++;
     }
+    *dest = c;
 }
 
 int main()
@@ -29,14 +30,13 @@ int main()
             res = true;
             break;
         }
-        oneShiftLeft(buf);
 
-        if(cin.peek() == EOF)
+        char c;
+        cin >> c;
+        if( c == EOF)
             break;
 
-        int c = cin.get();
-
-        strncat(buf, reinterpret_cast<char*>(&c), 1);
+        oneShiftLeft(buf,c);
     }
     if(res)
         cout << "URA" << endl;
