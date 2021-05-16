@@ -3,40 +3,52 @@
 
 using namespace std;
 
-void oneShiftLeft(char *dest , char c)
+char buf[20];
+char* buf_end;
+
+void addSymbol(char c)
 {
-    char *src;
-    src = dest;
-    src++;
-    while(*dest != '\0')
+    if(buf_end < &buf[18])
     {
-        *dest++ = *src++;
+        *buf_end++ = c;
+        *buf_end = 0;
     }
-    *dest = c;
+    else
+    {
+        char *p1 = &buf[0];
+        char *p2 = &buf[1];
+        while(p2 < buf_end)
+        {
+            *p1 = *p2;
+            p1++;
+            p2++;
+        }
+        *p1 = c;
+    }
 }
+
 
 int main()
 {
-    char buf[20];
-    cin.get(buf,18);
+    buf[0] = 0;
+    buf_end = buf;
+
     bool res = false;
     while(1)
     {
-        if(strlen(buf) <= 4)
+        char c;
+        cin >> noskipws;
+        cin >> c;
+        if(cin.eof())
             break;
+
+        addSymbol(c);
 
         if(strstr(buf, "1543") != 0)
         {
             res = true;
             break;
         }
-
-        char c;
-        cin >> c;
-        if( c == EOF)
-            break;
-
-        oneShiftLeft(buf,c);
     }
     if(res)
         cout << "URA" << endl;
