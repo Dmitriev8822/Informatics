@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <iostream>
 
 using namespace std;
@@ -69,13 +70,12 @@ int main()
     int minute = t/60;
     t = t - minute * 60;
 
-    cout << curH <<":" << curM << ":" << curS << endl;
-    cout << timeH << ":" << timeM << ":" << timeS << endl;
-
-    cout << hour << ":" << minute << ":" << t;
+    printf("%02d:%02d:%02d",hour,minute,t);
     if(day > 0)
-        cout << "+" << day << " days";
+        printf("+%d days", day);
+
     cout << endl;
+
 
     return 0;
 }
