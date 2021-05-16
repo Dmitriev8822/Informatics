@@ -72,20 +72,19 @@ void printPath( char *p, char *ignh, char *ignt)
     cout << ignt << endl;
 }
 
-
-
-const char src[] = "e:\\games\\burut\\goldenl.and\\data\\scripts\\charctrs\\npc\\2.txt";
+//const char src[] = "e:\\games\\burut\\goldenl.and\\data\\scripts\\charctrs\\npc\\2.txt";
 
 int main()
 {
     int N = 30;
     char Path[1002];
-    strcpy(Path,src);
-    cout << N << "\n" << Path << endl;
-    //cin >> N;
-    //cin >> Path;
+    cin >> N;
+    cin.ignore();
+    cin.getline(Path, 1000);
+
     char* ignh = Path;
     char* ignt = Path;
+
     func1(&Path[0], N, &ignh, &ignt);
     printPath(&Path[0],ignh, ignt);
 
