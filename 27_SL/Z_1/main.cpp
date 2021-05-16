@@ -3,7 +3,6 @@
 
 using namespace std;
 
-// сдвиг строки на однин символ влево
 void oneShiftLeft(char *dest)
 {
     char *src;
