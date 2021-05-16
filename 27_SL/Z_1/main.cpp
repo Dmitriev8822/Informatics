@@ -24,7 +24,7 @@ int main()
         if(strlen(buf) <= 4)
             break;
 
-        if(strstr(buf, "1543") != nullptr)
+        if(strstr(buf, "1543") != 0)
         {
             res = true;;
             break;
