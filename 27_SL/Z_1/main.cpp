@@ -8,7 +8,7 @@ void oneShiftLeft(char *dest)
     char *src;
     src = dest;
     src++;
-    while(*dest != 0)
+    while(*dest != '\0')
     {
         *dest++ = *src++;
     }
@@ -26,16 +26,15 @@ int main()
 
         if(strstr(buf, "1543") != 0)
         {
-            res = true;;
+            res = true;
             break;
         }
         oneShiftLeft(buf);
 
-        int c = cin.peek();
-        if( c == '\n')
-            continue;
+        if(cin.peek() == EOF)
+            break;
 
-        c = cin.get();
+        int c = cin.get();
 
         strncat(buf, reinterpret_cast<char*>(&c), 1);
     }
