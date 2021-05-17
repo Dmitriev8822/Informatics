@@ -4,11 +4,12 @@ using namespace std;
 
 int main()
 {
-    char line[20]
-    while(getline(cin,20))
+    int a;
+    int sum = 0;
+    while(getline(cin, a)
     {
-    cout << line << endl;
-    //do something
+        sum += a;
     }
+    cout << sum;
     return 0;
 }

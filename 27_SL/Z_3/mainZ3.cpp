@@ -11,7 +11,7 @@ int func0(char *p, int ig, char **ignd)
     while(1)
     {
         char* d = strchr(h, '\\');
-        if( d == nullptr )
+        if( d == 0 )
             break;
         int t = d - p;
         if( t > ig)
@@ -30,7 +30,7 @@ int func1(char *p, int N, char **ignh, char **ignt)
 {
     int ig = strlen(p) - N + 3;
     char *t = strstr(p, ":\\");
-    if( t != nullptr)
+    if( t != 0)
     {
         p = t + 1;
     }
@@ -56,7 +56,7 @@ int func1(char *p, int N, char **ignh, char **ignt)
         }
         p++;
         char* d = strchr(p, '\\');
-        if( d == nullptr )
+        if( d == 0 )
             break;
 
         p = d;

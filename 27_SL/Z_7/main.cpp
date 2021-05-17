@@ -3,19 +3,23 @@
 
 using namespace std;
 
+char flipper(char buf[256])
+{
+}
+
 int main()
 {
-    char str[256];
-    cin.getline(str,256);
-    int len = strlen(str);
+    char* buf = new char[255*1000];
     int i = 0;
-    int j = len-1;
-    while(i < j)
+    while(1)
     {
-        //cout << str[i] << " " << str[j] << endl;
-        swap(str[i], str[j]);
-        i++; j--;
+        cin >> noskipws;
+        cin >> buf[i]; i++;
+        if(cin.eof())
+            break;
     }
-    cout << str << endl;
+
+    flipper(buf);
+    delete buf;
     return 0;
 }
