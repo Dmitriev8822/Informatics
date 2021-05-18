@@ -32,36 +32,40 @@ char* compareWord(char *pA, char *pB)
 {
     int A = strlen(pA);
     int B = strlen(pB);
+
     if( A == 1 && B == 1)
     {
         if(*pA > *pB)
             return pA;
     }
-    else if(A > 2 && B > 2)
+
+    if(A >= 2 && B >= 2)
     {
         if(pA[1] > pB[1])
             return pA;
     }
-    if(A > B)
-        return pA;
+    else
+        if(A > B)
+            return pA;
+
     return 0;
 }
 
 void bubbleSort(char **p, int cap)
 {
-	for(int i = 0; i < cap; i++)
-	{   // i - номер прохода
-		for( int j = cap-1; j > i; j--)
-		{   // внутренний цикл прохода
-			char* h = compareWord(p[j-1], p[j]);
-			if( h != 0)
-			{
+    for(int i = 0; i < cap; i++)
+    {   // i - номер прохода
+        for( int j = cap-1; j > i; j--)
+        {   // внутренний цикл прохода
+            char* h = compareWord(p[j-1], p[j]);
+            if( h != 0)
+            {
                 char *t = p[j];
                 p[j] = h;
                 p[j-1] = t;
-			}
-		}
-	}
+            }
+        }
+    }
 }
 
 // функция для решения третьей задачи
@@ -87,8 +91,8 @@ void printWords(char *p)
 
 int main ()
 {
-    //char str[] ="   tah a df c ";
-    char str[] ="abd cdc efr";
+    char str[] ="   tah a df c ";
+    //char str[] ="b a bbd dadc cfr";
     int cap = 0;
     char *p = str;
 
@@ -102,10 +106,6 @@ int main ()
         if(*p == 0)
             break;
     }
-
-    cout << cap << endl;
-
-    printWords(str);
 
     char** strList = new char*[cap];
     char** psl = strList;
