@@ -2,7 +2,7 @@
 
 using namespace std;
 
-
+// Пропускает пробелы, идущие подряд. Возвращает указатель на перый не пробельный символ.
 char* skipDelimiters(char *p)
 {
     while(*p == ' ')
@@ -11,6 +11,7 @@ char* skipDelimiters(char *p)
     return p;
 }
 
+// ищет конц последовательности символов, заканчивающихся пробелом или нулем.
 char* getTaiOflWord(char *p)
 {
     //while((*p >= 'A' && *p <= 'Z') || (*p >= 'a' && *p <= 'z'))
