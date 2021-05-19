@@ -14,7 +14,8 @@ char* skipDelimiters(char *p)
 
 char* getTaiOflWord(char *p)
 {
-    while((*p >= 'A' && *p <= 'Z') || (*p >= 'a' && *p <= 'z'))
+    //while((*p >= 'A' && *p <= 'Z') || (*p >= 'a' && *p <= 'z'))
+    while(*p != ' ' && *p != 0)
         p++;
 
     return p;
@@ -68,31 +69,12 @@ void bubbleSort(char **p, int cap)
     }
 }
 
-// функция для решения третьей задачи
-void printWords(char *p)
-{
-    while(1)
-    {
-        p = skipDelimiters(p);
-        if(*p == 0)
-            break;
-        char *bgn = p;
-        p = getTaiOflWord(p);
-        if(*p == 0)
-        {
-            puts(bgn);
-            break;
-        }
-        *p = 0;
-        puts(bgn);
-        p++;
-    }
-}
-
 int main ()
 {
-    char str[] ="   tah a df c ";
-    //char str[] ="b a bbd dadc cfr";
+    char str[502];
+    cin.getline(str, 501);
+    //char str[] = "tah a df c";
+
     int cap = 0;
     char *p = str;
 
@@ -118,10 +100,10 @@ int main ()
         *p = 0;
         p++;
     }
-    cout << endl;
-    printStrList(strList, cap);
+    //cout << endl;
+    //printStrList(strList, cap);
     bubbleSort(strList, cap);
-    cout << endl;
+    //cout << endl;
     printStrList(strList, cap);
 
     delete[] strList;
