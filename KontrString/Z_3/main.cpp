@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
@@ -43,9 +44,8 @@ void printWords(char *p)
 
 int main ()
 {
-    char str[502];
-    cin.getline(str, 501);
-    printWords(str);
-
-    return 0;
+  char str[502];
+  cin.getline(str,501);
+  printWords(str);
+  return 0;
 }
