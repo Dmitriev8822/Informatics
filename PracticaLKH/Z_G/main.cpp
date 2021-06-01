@@ -3,15 +3,6 @@
 
 using namespace std;
 
-//void printArray(int N, int *pX, int *pY)
-//{
-//    for(int j=0; j<N; j++)
-//    {
-//        cout << pX[j]<< "\t" << pY[j] << endl;
-//    }
-//    cout << endl;
-//}
-
 int main()
 {
     int N;
@@ -22,11 +13,8 @@ int main()
     {
         cin >> ListX[j] >> ListY[j];
     }
-    //printArray(N, ListX, ListY);
     sort(ListX, ListX + N);
-    //printArray(N, ListX, ListY);
     sort(ListY, ListY + N);
-    //printArray(N, ListX, ListY);
     int dx = ListX[N-1] - ListX[0];
     int dy = ListY[N-1] - ListY[0];
     cout << dx*dy << endl;
