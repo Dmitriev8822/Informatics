@@ -11,6 +11,7 @@ int main()
     int po = -2;
     for(int i = 0; i < n; i++)
     {
+        cin >> buf[i];
         if(buf[i] == k)
         {
             if(pi == -2)
