@@ -1,26 +1,32 @@
 #include <iostream>
-
+#include <fstream>
 using namespace std;
 
 int main()
 {
+    ifstream fin("input.txt");
+    ofstream fout("output.txt");
+
     int n;
-    cin >> n;
-    int mmaxi = -1;
-    int maxi = -1;
-    int arr[2000];
+    fin >> n;
+    int maxF = 0;
+    int maxV = 0;
+
     for(int i = 0; i < n; i++)
     {
-        int t = arr[i];
-        cin >> t;
-        if(mmaxi > t)
-            mmaxi = t;
+        int t;
+        fin >> t;
+        if(t <= maxV)
+            continue;
+        if(t > maxF)
+        {
+            maxV = maxF;
+            maxF = t;
+        }
     }
 
-    for(int i = 0; i < n; i++)
-        if(arr[i] > maxi && arr[i] < mmaxi)
-            maxi = arr[i];
-
-    cout << maxi << endl;
+    fout << maxV << endl;
+    fout.close();
+    fin.close();
     return 0;
 }
