@@ -11,17 +11,15 @@ int main()
     int po = -2;
     for(int i = 0; i < n; i++)
     {
-        int t = buf[i];
-        if(t == k)
-            po = i;
-    }
-
-    for(int i = 0; i < n; i++)
-    {
         if(buf[i] == k)
         {
-            pi = i;
-            break;
+            if(pi == -2)
+            {
+                pi = i;
+                po = i;
+            }
+            else
+                po = i;
         }
     }
     pi++;
