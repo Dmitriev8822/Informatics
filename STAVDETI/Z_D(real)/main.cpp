@@ -7,6 +7,7 @@ void MoveLeft(int* p1, int* p2, int n)
     while(n)
     {
         *p1 = *p2;
+        *p2 = -1;
         p1++;
         p2++;
         n--;
@@ -56,7 +57,7 @@ int FindLine(int* p, int n)
 
 int main()
 {
-    int buf[1500];
+    int buf[1000];
     int n;
     cin >> n;
     for(int i = 0; i < n; i++)
