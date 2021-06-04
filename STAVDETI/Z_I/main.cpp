@@ -1,26 +1,46 @@
-#include<iostream>
+#include <iostream>
+#include <algorithm>
+
 using namespace std;
-main()
-{
-int x[1001],i,N,A,B,C,D,y;
-cin>>N>>A>>B>>C>>D;
 
-for(i=1;i<=N;i++)
-x[i]=i;
-
-for(i=A;i<=(A+B)/2;i++)
+void deleter(int* p, int m)
 {
-y=x[i];
-x[i]=x[B+A-i];
-x[B+A-i]=y;
+    for(int j = 0; j < m; j++)
+        for(int i = j+1; i < m-1; i++)
+        {
+            if(p[j] == p[i])
+                p[j] = 0;
+        }
 }
 
-for(i=C;i<=(C+D)/2;i++)
+void printer(int* p, int n)
 {
-y=x[i];
-x[i]=x[D+C-i];
-x[D+C-i]=y;
+    for(int i = 0; i < n; i++)
+    {
+        if(p[i] != 0)
+        {
+            cout << p[i] << " ";
+            //cout << "El[" << i << "] = "<< p[i] << "    ";
+        }
+    }
+    cout << endl;
 }
-for(i=1;i<=N;i++)
-cout<<x[i]<<' ';
+
+int main()
+{
+    int n, m;
+    int buf[5000];
+    cin >> n;
+    for(int i = 0; i < n; i++)
+        cin >> buf[i];
+
+    cin >> m;
+    m = m+n;
+    for(int i = n; i < m; i++)
+        cin >> buf[i];
+
+    deleter(buf, m);
+    sort(buf, buf+m);
+    printer(buf, m);
+    return 0;
 }

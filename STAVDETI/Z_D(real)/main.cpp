@@ -57,13 +57,14 @@ int FindLine(int* p, int n)
 
 int main()
 {
-    int buf[1000];
+    int buf[1002];
     int n;
     cin >> n;
     for(int i = 0; i < n; i++)
     {
         cin >> buf[i];
     }
+    buf[n] = -1;
     //int buf[] = {1,2,2, 3, 3,3,3,3,2};
     //int n = sizeof(buf)/sizeof(int);
     //MoveLeft(buf, &buf[1], n-1);
