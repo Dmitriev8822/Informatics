@@ -8,16 +8,16 @@ int main()
     //ofstream fout("output.txt");
 
     int n;
-    cin >> n;
     //fin >> n;
+    cin >> n;
     int maxF = 0;
     int maxV = 0;
 
     for(int i = 0; i < n; i++)
     {
         int t;
-        cin >> t;
         //fin >> t;
+        cin >> t;
         if(t <= maxV)
             continue;
         if(t > maxF)
@@ -25,6 +25,9 @@ int main()
             maxV = maxF;
             maxF = t;
         }
+        else
+            if(t > maxV)
+                maxV = t;
     }
 
     //fout << maxV << endl;
