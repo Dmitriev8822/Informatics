@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int powerNumber(int v)
+int multiplyNumbers(int v)
 {
     int res = 1;
     while(v != 0)
@@ -27,7 +27,7 @@ int main()
     for(int j = 0; j < n; j++)
     {
         int v = A[j];
-        int d = abs(powerNumber(v) - k);
+        int d = abs(multiplyNumbers(v) - k);
         if(mind > d)
         {
             mind = d;
