@@ -86,8 +86,8 @@ int main()
     for(int y=0; y<n; y++)
     {
         for(int x=0; x<n; x++)
-            //cout << arr[x][y] << " ";
-            printf("%4d",arr[x][y]);
+            cout << arr[x][y] << " ";
+            //printf("%4d",arr[x][y]);
         cout << endl;
     }
     return 0;

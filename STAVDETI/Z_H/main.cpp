@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -18,9 +19,13 @@ int main()
 {
     int n;
     int k;
-    int A[] = {622,99,48,58,61,46,99,94,23,35,94,7,12};
-    n = sizeof(A)/sizeof(int);
-    k = 26;
+    int A[1001];
+    cin >> n >> k;
+    for(int i = 0; i < n; i++)
+        cin >> A[i];
+    //int A[] = {622,99,48,58,61,46,99,94,23,35,94,7,12};
+    //n = sizeof(A)/sizeof(int);
+    //k = 26;
 
     int mind = 10000;
     int res = 0;
@@ -33,7 +38,7 @@ int main()
             mind = d;
             res = v;
         }
-        printf("[%2d] %2d %2d\n", j, A[j], d);
+        //printf("[%2d] %2d %2d\n", j, A[j], d);
     }
     cout << res << endl;
     return 0;
