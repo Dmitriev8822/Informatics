@@ -47,7 +47,8 @@ int main()
                 cin >> v;
                 if(i-- == I)
                 {
-                    printf("%d %d %d %d\n", ++x, ++y, ++z, v);
+                    cout << ++x << " " << ++y << " " << ++z << " " << v << endl;
+                    //printf("%d %d %d %d\n", ++x, ++y, ++z, v);
                     return 0;
                 }
             }

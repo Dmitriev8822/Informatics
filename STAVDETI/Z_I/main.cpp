@@ -6,7 +6,7 @@ using namespace std;
 void deleter(int* p, int m)
 {
     for(int j = 0; j < m; j++)
-        for(int i = j+1; i < m-1; i++)
+        for(int i = j+1; i < m; i++)
         {
             if(p[j] == p[i])
                 p[j] = 0;
