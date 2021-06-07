@@ -26,7 +26,7 @@ int g(int a, int b)
 }
 int k(int a, int b)
 {
-    return a-b;
+    return a - a/b*b;
 }
 int h(int a, int b)
 {

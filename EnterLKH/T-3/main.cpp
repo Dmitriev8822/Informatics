@@ -4,8 +4,8 @@ int c;
 
 int fib(int n){
     c++;
-    if(n == 0 || n == 1)
-        return 1;
+    //if(n == 0 || n == 1)
+        //return 1;
     int sm1 = 1;
     int sm2 = 1;
     int s = 0;
