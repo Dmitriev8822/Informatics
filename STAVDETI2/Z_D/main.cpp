@@ -29,24 +29,24 @@ int compareRec(const void *pa, const void *pb)
 
 int main()
 {
-    rec_t A[] = {
-                {101, 80},
-                {305, 90},
-                {200, 14},
-                {100, 91},
-                {500, 25}
-                };
-    int n = sizeof(A)/sizeof(rec_t);
-    //rec_t A[1000];
-    //int n;
-    //cin >> n;
-    //for(int j=0; j<n; j++)
-    //{
-    //    rec_t t;
-    //    cin >> t.id >> t.rating;
-    //    A[j] = t;
-    //}
-    printRaiting(A, n);
+    //rec_t A[] = {
+    //            {101, 80},
+    //            {305, 90},
+    //            {200, 14},
+    //            {100, 91},
+     //           {500, 25}
+     //           };
+    //int n = sizeof(A)/sizeof(rec_t);
+    rec_t A[1000];
+    int n;
+    cin >> n;
+    for(int j=0; j<n; j++)
+    {
+        rec_t t;
+        cin >> t.id >> t.rating;
+        A[j] = t;
+    }
+    //printRaiting(A, n);
     qsort(A, n, sizeof(rec_t),compareRec);
     printRaiting(A, n);
 
