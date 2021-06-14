@@ -10,7 +10,7 @@ bool checkShip(char **p, int maxY, int maxX, int y, int x)
 
     tx = x + 1; //справа
     ty = y;
-    if( tx < maxX && p[tx][ty] != '.')
+    if( tx < maxX && p[ty][tx] != '.')
         return false;
 
     //tx = x + 1; //справа, снизу
@@ -20,7 +20,7 @@ bool checkShip(char **p, int maxY, int maxX, int y, int x)
 
     tx = x;     //снизу
     ty = y + 1;
-    if(ty < maxY && p[tx][ty] != '.')
+    if(ty < maxY && p[ty][tx] != '.')
         return false;
 
     //tx = x - 1; // снизу слева
@@ -30,7 +30,7 @@ bool checkShip(char **p, int maxY, int maxX, int y, int x)
 
     tx = x - 1; // слева
     ty = y;
-    if(tx >= 0 && p[tx][ty] != '.')
+    if(tx >= 0 && p[ty][tx] != '.')
         return false;
 
     //tx = x - 1; // ссверху слева
@@ -40,7 +40,7 @@ bool checkShip(char **p, int maxY, int maxX, int y, int x)
 
     tx = x;     // серху
     ty = y - 1;
-    if(ty >= 0 && p[tx][ty] != '.')
+    if(ty >= 0 && p[ty][tx] != '.')
         return false;
 
     return true;
