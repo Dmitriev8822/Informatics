@@ -22,7 +22,19 @@ bool checkShip(char **p, int maxX, int maxY, int x, int y)
 
 }
 
+char** newArray2D(int col, int row)
+{
+    char **p = new char*[col];
+    for(int j=0; j<row; j++)
+        p[j] = new char[row];
+}
 
+void deleteArray2D(char** p, int col, int row)
+{
+    for(int j=0; j<row; j++)
+        delete p[j];
+    delete p;
+}
 
 void printer(char **buf)
 {
@@ -48,15 +60,15 @@ void printArray(char **p)
 
 int main()
 {
-    int n, m;
+    int maxY, maxX;
     cin >> maxX >> maxY;
-    char buf[maxX][maxY];
+    char **buf = newArray2D(maxX,maxY);
     for(int y = 0; y < maxY; y++)
         for(int x = 0; x  < maxX; x++)
             cin >> buf[x][y];
 
     //printer(buf, n, m);
-    printArray(buf[0][0]);
+    printArray(buf);
 
     int cnt = 0;
 //    for(int i = 0; i < n; i++)
@@ -69,5 +81,7 @@ int main()
 //        }
 //    }
 //    cout << res << endl;
+
+    deleteArray2D(buff, maxX,maxY);
     return 0;
 }
