@@ -10,9 +10,6 @@ int main()
     for(int i = 0; i < n; i++)
         cin >> buf[i];
 
-    int cnt = 0;
-    int tmp = buf[0];
-
     int mini, mini2;
     for(int i = 0; i < n-1; i++)
     {
@@ -29,8 +26,6 @@ int main()
             buf[mini2] = buf[i];
             buf[i] = mini;
     }
-
-    cout << cnt << endl;
     for(int i = 0; i < n; i++)
         cout << buf[i] << " ";
     return 0;
