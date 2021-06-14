@@ -15,7 +15,7 @@ bool checkShip(char **p, int maxY, int maxX, int y, int x)
 
     //tx = x + 1; //справа, снизу
     //ty = y + 1;
-    //if( tx < maxX && ty < maxY && p[tx][ty] != '.')
+    //if( tx < maxX && ty < maxY && p[ty][tx] != '.')
     //    return false;
 
     tx = x;     //снизу
@@ -25,7 +25,7 @@ bool checkShip(char **p, int maxY, int maxX, int y, int x)
 
     //tx = x - 1; // снизу слева
     //ty = y + 1;
-    //if(tx >= 0 && ty < maxY && p[tx][ty] != '.')
+    //if(tx >= 0 && ty < maxY && p[ty][tx] != '.')
     //    return false;
 
     tx = x - 1; // слева
@@ -35,13 +35,19 @@ bool checkShip(char **p, int maxY, int maxX, int y, int x)
 
     //tx = x - 1; // ссверху слева
     //ty = y - 1;
-    //if(tx >= 0 && ty >= 0 && p[tx][ty] != '.')
+    //if(tx >= 0 && ty >= 0 && p[ty][tx] != '.')
     //    return false;
 
     tx = x;     // серху
     ty = y - 1;
     if(ty >= 0 && p[ty][tx] != '.')
         return false;
+
+    //tx = x + 1; // ссверху справа
+    //ty = y - 1;
+    //if(tx < maxX && ty >= 0 && p[ty][tx] != '.')
+    //    return false;
+
 
     return true;
 }
@@ -74,18 +80,32 @@ void printArray(char **p, int maxY, int maxX)
 
 int main()
 {
+    //char inp[5][4] =   {
+    //                {'*','*','*','*'},
+    //                {'*','*','.','.'},
+    //                {'*','.','.','.'},
+    //                {'*','.','.','.'},
+    //                {'.','.','.','.'}
+    //                };
+
     //char inp[4][4] =   {
     //                {'*','*','*','*'},
     //                {'*','*','.','.'},
     //                {'*','.','.','.'},
-    //                {'*','.','.','.'}/*,
-    //                {'*','*','*','*'}*/
+    //                {'*','.','.','.'},
+    //                };
+
+    //char inp[4][3] =   {
+    //                {'*','*','*'},
+    //                {'.','.','.'},
+    //                {'.','.','.'},
+    //                {'*','*','*'}
     //                };
 
     int maxY, maxX;
     cin >> maxY >> maxX;
     //maxY = 4;
-    //maxX = 4;
+    //maxX = 3;
 
     char **buff = newArray2D(maxY, maxX);
 
@@ -95,14 +115,14 @@ int main()
             //buff[y][x] = inp[y][x];
             cin >> buff[y][x];
         }
-    //printArray(buff, maxY, maxX);
+    printArray(buff, maxY, maxX);
 
     int cnt = 0;
-    for(int i = 0; i < maxY; i++)
+    for(int y = 0; y < maxY; y++)
     {
-        for(int j = 0; j < maxX; j++)
+        for(int x = 0; x < maxX; x++)
         {
-            if(checkShip(buff, maxY, maxX, i, j))
+            if(checkShip(buff, maxY, maxX, y, x))
                 cnt++;
         }
     }
