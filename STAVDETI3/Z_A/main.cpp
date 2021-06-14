@@ -95,7 +95,7 @@ int main()
             //buff[y][x] = inp[y][x];
             cin >> buff[y][x];
         }
-    //printArray(buff, maxY, maxX);
+    printArray(buff, maxY, maxX);
 
     int cnt = 0;
     for(int i = 0; i < maxY; i++)
