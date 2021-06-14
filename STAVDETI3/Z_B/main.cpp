@@ -12,21 +12,17 @@ int main()
 
     int sum = 0;
     int maxi = 0;
+    n -= 2;
 
-    for(int j = 0; j < n; j++)
+    for(int i = 0; i < n; i++)
     {
-        int t = j+3;
-        if(t > n)
-            break;
-        for(int i = j; i < t; i++)
+        int sum = 0;
+        sum = buf[i] + buf[i+1] + buf[i+2];
+        if(maxi < sum)
         {
-            sum += buf[i];
+            maxi = sum;
             //cout << "sum = " << sum << endl;
         }
-        if(maxi < sum)
-            maxi = sum;
-
-        sum = 0;
     }
     cout << maxi << endl;
     return 0;
