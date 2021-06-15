@@ -15,8 +15,8 @@ bool checkShip(char **p, int maxY, int maxX, int y, int x)
 
     //tx = x + 1; //справа, снизу
     //ty = y + 1;
-    //if( tx < maxX && ty < maxY && p[tx][ty] != '.')
-    //    return false;
+    //if( tx < maxX && ty < maxY && p[ty][tx] != '.')
+    //   return false;
 
     tx = x;     //снизу
     ty = y + 1;
@@ -25,7 +25,7 @@ bool checkShip(char **p, int maxY, int maxX, int y, int x)
 
     //tx = x - 1; // снизу слева
     //ty = y + 1;
-    //if(tx >= 0 && ty < maxY && p[tx][ty] != '.')
+    //if(tx >= 0 && ty < maxY && p[ty][tx] != '.')
     //    return false;
 
     tx = x - 1; // слева
@@ -35,7 +35,7 @@ bool checkShip(char **p, int maxY, int maxX, int y, int x)
 
     //tx = x - 1; // ссверху слева
     //ty = y - 1;
-    //if(tx >= 0 && ty >= 0 && p[tx][ty] != '.')
+    //if(tx >= 0 && ty >= 0 && p[ty][tx] != '.')
     //    return false;
 
     tx = x;     // серху
@@ -95,7 +95,7 @@ int main()
             //buff[y][x] = inp[y][x];
             cin >> buff[y][x];
         }
-    printArray(buff, maxY, maxX);
+    //printArray(buff, maxY, maxX);
 
     int cnt = 0;
     for(int i = 0; i < maxY; i++)

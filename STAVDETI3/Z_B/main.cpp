@@ -10,19 +10,23 @@ int main()
     for(int i = 0; i < n; i++)
         cin >> buf[i];
 
-    int sum = 0;
     int maxi = 0;
-    n -= 2;
 
     for(int i = 0; i < n; i++)
     {
-        int sum = 0;
-        sum = buf[i] + buf[i+1] + buf[i+2];
+        int i1 = i+1;
+        if( i1 >= n)
+            i1 -= n;
+        int i2 = i+2;
+        if( i2 >= n)
+            i2-= n;
+
+        int sum = buf[i] + buf[i1] + buf[i2];
         if(maxi < sum)
         {
             maxi = sum;
-            //cout << "sum = " << sum << endl;
         }
+        //cout << "sum = " << sum << endl;
     }
     cout << maxi << endl;
     return 0;
