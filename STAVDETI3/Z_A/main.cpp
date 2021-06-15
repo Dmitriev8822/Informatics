@@ -60,7 +60,7 @@ char** newArray2D(int y, int x)
     return p;
 }
 
-void deleteArray2D(char** p, int y, int x)
+void deleteArray2D(char** p, int y)
 {
     for(int j=0; j<y; j++)
         delete[] p[j];
@@ -104,17 +104,22 @@ int main()
 
     int maxY, maxX;
     cin >> maxY >> maxX;
+    cin.ignore();
     //maxY = 4;
     //maxX = 3;
 
     char **buff = newArray2D(maxY, maxX);
 
     for(int y = 0; y < maxY; y++)
+    {
+        char str[101];
+        cin.getline(str, 101);
         for(int x = 0; x  < maxX; x++)
         {
             //buff[y][x] = inp[y][x];
-            cin >> buff[y][x];
+            buff[y][x] = str[x];
         }
+    }
     printArray(buff, maxY, maxX);
 
     int cnt = 0;
@@ -128,6 +133,6 @@ int main()
     }
     cout << cnt << endl;
 
-    deleteArray2D(buff, maxY, maxX);
+    deleteArray2D(buff, maxY);
     return 0;
 }
