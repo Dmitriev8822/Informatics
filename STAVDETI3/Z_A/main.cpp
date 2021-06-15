@@ -123,7 +123,7 @@ int main()
             buff[y][x] = str[x];
         }
     }
-    printArray(buff, maxY, maxX);
+    //printArray(buff, maxY, maxX);
 
     int cnt = 0;
     for(int y = 0; y < maxY; y++)
