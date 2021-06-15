@@ -8,6 +8,9 @@ bool checkShip(char **p, int maxY, int maxX, int y, int x)
     int tx;
     int ty;
 
+    if(p[y][x] != '.')
+        return false;
+
     tx = x + 1; //справа
     ty = y;
     if( tx < maxX && p[ty][tx] != '.')
