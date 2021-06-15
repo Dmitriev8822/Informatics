@@ -15,6 +15,7 @@ int main()
 {
     int n;
     int m;
+
     cin >> n >> m;
 
     cout << getBends(n) + getBends(m) << endl;
