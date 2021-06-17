@@ -17,18 +17,18 @@ void deleteIntArray2D(int** p, int y)
     delete[] p;
 }
 
-void printIntArray(int **p, int maxY, int maxX)
- {
-    for(int y = 0; y < maxY; y++)
-    {
-        for(int x = 0; x < maxX; x++)
-        {
-            int v = p[y][x];
-            cout << v << " ";
-        }
-        cout << endl;
-    }
-}
+//void printIntArray(int **p, int maxY, int maxX)
+// {
+//    for(int y = 0; y < maxY; y++)
+//    {
+//        for(int x = 0; x < maxX; x++)
+//        {
+//            int v = p[y][x];
+//            cout << v << " ";
+//        }
+//       cout << endl;
+//   }
+//}
 
 
 int main()
@@ -55,16 +55,18 @@ int main()
             pO[j][i] = v;
         }
     cin >> h >> w;
-    cin.ignore();
+
     pT = newIntArray2D(h, w);
     for(int j=0; j<h; j++)
     {
-        char str[101];
-        cin.getline(str,101);
+        //char str[102];
+        //cin.getline(str,101);
         for(int i=0; i<w; i++)
         {
+            char c;
+            cin >> c;
             int v = 0;
-            if(str[i] == '.')
+            if(c == '.')
                 v = 1;
             pT[j][i] = v;
         }
@@ -87,7 +89,7 @@ int main()
                 summ += pO[j+osi][i+osj];
         }
 
-    cout << summ << endl;
+    cout << summ;
     deleteIntArray2D(pT, h);
     deleteIntArray2D(pO, a);
 

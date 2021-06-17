@@ -44,18 +44,14 @@ int main()
 {
     int maxY, maxX;
     cin >> maxY >> maxX;
-    cin.ignore();
 
     char **buff = newArray2D(maxY, maxX +1);
 
     for(int y = 0; y < maxY; y++)
     {
-        char str[101];
-        cin.getline(str, 101);
         for(int x = 0; x  < maxX; x++)
         {
-            //buff[y][x] = inp[y][x];
-            buff[y][x] = str[x];
+            cin >> buff[y][x];
         }
         buff[y][maxX] = 0;  //для получения нультерминированной строки
     }
@@ -76,7 +72,7 @@ int main()
     if(n > 0)
         cnt += n*(n+1)/2;
 
-    cout << cnt << endl;
+    cout << cnt;
 
     deleteArray2D(buff, maxY);
     return 0;

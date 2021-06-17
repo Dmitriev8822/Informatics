@@ -107,7 +107,7 @@ int main()
 
     int maxY, maxX;
     cin >> maxY >> maxX;
-    cin.ignore();
+
     //maxY = 4;
     //maxX = 3;
 
@@ -115,12 +115,9 @@ int main()
 
     for(int y = 0; y < maxY; y++)
     {
-        char str[101];
-        cin.getline(str, 101);
         for(int x = 0; x  < maxX; x++)
         {
-            //buff[y][x] = inp[y][x];
-            buff[y][x] = str[x];
+            cin >> buff[y][x];
         }
     }
     //printArray(buff, maxY, maxX);
@@ -134,7 +131,7 @@ int main()
                 cnt++;
         }
     }
-    cout << cnt << endl;
+    cout << cnt;
 
     deleteArray2D(buff, maxY);
     return 0;
