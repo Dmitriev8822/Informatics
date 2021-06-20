@@ -26,6 +26,8 @@ int main()
         cin >> A[j];
 
     int res = rdiv(A, n, divider);
+    if( res == 0)
+        res = divider;
     cout << res;
 
     return 0;
