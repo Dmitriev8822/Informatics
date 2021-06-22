@@ -6,37 +6,45 @@ int main()
 {
     int n;
     cin >> n;
-    int sums = 0;
-    int sumt = 0;
-    int maxi1 = -1, maxi2 = 100001;
-    int res;
+    int buf[111][111];
 
-    int buf[101][101];
     for(int i = 0; i < n; i++)
-    {
         for(int j = 0; j < n; j++)
-        {
             cin >> buf[i][j];
-            sums += buf[i][j];
-        }
-        if(sums > maxi1)
-            maxi1 = sums;
 
-        sums = 0;
-    }
+    int imain = 0, jmain = 0;
+    int maxi = 0, mini= 10000001;
+
 
     for(int i = 0; i < n; i++)
     {
+        int sum = 0;
         for(int j = 0; j < n; j++)
         {
-            sumt += buf[j][i];
+            sum += buf[i][j];
         }
-        if(sumt < maxi2)
-            maxi2 = sumt;
-
-        sumt = 0;
+        if(maxi < sum)
+        {
+            imain = i;
+            maxi = sum;
+        }
     }
-    res = buf[maxi1][maxi2];
-    cout << res;
+
+    for(int j = 0; j < n; j++)
+    {
+        int sum = 0;
+        for(int i = 0; i < n; i++)
+        {
+            sum += buf[i][j];
+        }
+        if(mini > sum)
+        {
+            jmain = j;
+            mini = sum;
+        }
+    }
+    int res = buf[imain][jmain];
+    //cout << "row = "<< imain << " col = " << jmain << " value = " << res;
+    cout << res << endl;
     return 0;
 }
