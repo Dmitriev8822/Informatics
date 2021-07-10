@@ -142,8 +142,10 @@ int main()
     if( ymax < yb) ymax = yb;
     if( ymax < yf) ymax = yf;
     //корректируем границу поля
-    xmax++;
-    ymax++;
+    xmin--;
+    ymin--;
+    xmax += 2;
+    ymax += 2;
 
     //строим отностиельную систему координат
     xa = xa - xmin;
@@ -201,7 +203,7 @@ int main()
     del2DArray(M, xmax);
 
     if( res == ID_B)
-        cout << w << endl;
+        cout << w -1 << endl;
     else
         cout << -1 << endl;
 
