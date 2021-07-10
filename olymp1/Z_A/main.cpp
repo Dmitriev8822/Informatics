@@ -115,15 +115,15 @@ int main()
     int xb, yb;
     int xf, yf;
 
-    #if A_DEBUG == 1
-    xa = 100; ya = 100;
-    xb = 110; yb = 110;
-    xf = 110; yf = 105;
-    #else
+    //#if A_DEBUG == 1
+    //xa = 100; ya = 100;
+    //xb = 110; yb = 110;
+    //xf = 110; yf = 105;
+    //#else
     cin >> xa >> ya;
     cin >> xb >> yb;
     cin >> xf >> yf;
-    #endif // A_DEBUG
+    //#endif // A_DEBUG
 
     //находим координаты поля, заданного точеками a,b,f
     int xmin = xa;
