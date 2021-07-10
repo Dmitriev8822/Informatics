@@ -115,15 +115,15 @@ int main()
     int xb, yb;
     int xf, yf;
 
-    #if A_DEBUG == 1
-    xa = 100; ya = 100;
-    xb = 110; yb = 110;
-    xf = 110; yf = 105;
-    #else
+    //#if A_DEBUG == 1
+    //xa = 100; ya = 100;
+    //xb = 110; yb = 110;
+    //xf = 110; yf = 105;
+    //#else
     cin >> xa >> ya;
     cin >> xb >> yb;
     cin >> xf >> yf;
-    #endif // A_DEBUG
+    //#endif // A_DEBUG
 
     //находим координаты поля, заданного точеками a,b,f
     int xmin = xa;
@@ -142,8 +142,10 @@ int main()
     if( ymax < yb) ymax = yb;
     if( ymax < yf) ymax = yf;
     //корректируем границу поля
-    xmax++;
-    ymax++;
+    xmin--;
+    ymin--;
+    xmax += 2;
+    ymax += 2;
 
     //строим отностиельную систему координат
     xa = xa - xmin;
@@ -201,7 +203,7 @@ int main()
     del2DArray(M, xmax);
 
     if( res == ID_B)
-        cout << w << endl;
+        cout << w -1 << endl;
     else
         cout << -1 << endl;
 
