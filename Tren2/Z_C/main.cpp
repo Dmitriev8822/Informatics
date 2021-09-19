@@ -6,17 +6,9 @@ int main()
 {
     int n;
     cin >> n;
-    bool v = false;
-    if(n % 100)
-        if(n % 400)
-            v = true;
-
-    else if(n % 4)
-        v  = true;
-
-    if(v)
-        cout << "13/09/" << n << endl;
-    else
+    if(n % 4 == 0 && n % 100 != 0 || n % 400 == 0)
         cout << "12/09/" << n << endl;
+    else
+        cout << "13/09/" << n << endl;
     return 0;
 }
