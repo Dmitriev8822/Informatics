@@ -1,28 +1,46 @@
 #include <iostream>
-#include <cmath>
+#include <iomanip>
+#include <stdlib.h>
+#include <math.h>
 
 using namespace std;
 
-int buf[100];
+int compare (const void * a, const void * b)
+{
+    return ( *(double*)a - *(double*)b );
+}
 
 int main()
 {
-    int n;
-    cin >> n;
-    for(int i = 0; i < n; i++)
-        cin >> buf[i];
+    double A[100];
+    int N;
+    cin >> N;
+    for(int j = 0; j < N; j++)
+        cin >> A[j];
 
-    int mini = 1000000000;
-    for(int j = 0; j < n; j++)
+    while(N > 1)
     {
-        int sum = 0;
-        for(int i = 0; i < n; i++)
-            sum += sqrt(buf[j]*buf[i])*2;
+        qsort(A, N, sizeof(double), compare);
+        int iLeft  = 0;
+        int iRight = N-1;
+        N = 0;
+        while(1)
+        {
+            if(iLeft > iRight)
+                break;
 
-        if(mini > sum)
-            mini = sum;
+            double dSumm;
+            if(iLeft == iRight)
+                dSumm = A[iLeft];
+            else
+                dSumm = 2.0 * sqrt(A[iLeft] * A[iRight]);
+
+            A[iLeft] = dSumm;
+            iLeft  += 1;
+            N = iLeft;
+            iRight -= 1;
+        }
     }
-
-    cout << mini << endl;
+    cout << fixed << setprecision(2) << A[0] << endl;
     return 0;
 }
