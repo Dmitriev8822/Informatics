@@ -6,18 +6,23 @@ int main()
 {
     int n;
     cin >> n;
-    if(n % 400)
+    if(n%100 == 0)
     {
-        cout << "13/09/" << n << endl;
-        return 0;
+        if(n%400 == 0)
+            cout << "13/09/";
+        else
+            cout << "12/09/";
     }
-    if(n % 4 == 0 && n % 100 != 0)
+    else
     {
-        cout << "13/09/" << n << endl;
-        return 0;
+        if(n % 4 == 0)
+            cout << "13/09/";
+        else
+            cout << "12/09/";
     }
-
-    cout << "12/09/" << n << endl;
+    cout.width(4);
+    cout.fill('0');
+    cout << n << endl;
 
     return 0;
 }
