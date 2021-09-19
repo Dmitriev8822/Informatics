@@ -5,15 +5,18 @@ using namespace std;
 
 int main()
 {
-    string h;
-    cin >> h;
-    char n = h[0];
-    cout << n << endl;
-    int k;
-    cin >> k;
-    if(n == 'S' && (k - 1) % 2 == 0 || n == 'H' && k % 2 == 0)
-        cout << "No" << endl;
-    else
-        cout << "Yes" << endl;
+        string s;
+        cin >> s;
+        int n;
+        cin >> n;
+        if(s == "School")
+        {
+            if(!(n % 2))
+                cout << "No" << endl;
+            else
+                cout << "Yes" << endl;
+        }
+        else
+            cout << "Yes" << endl;
     return 0;
 }
