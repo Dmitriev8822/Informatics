@@ -16,7 +16,7 @@ int main()
     for(int j=0; j<N; j++)
     {
         int index = j;
-        int summ;
+        int summ = 0;
         int n = N-1;
         for(int k=0; k<n; k++)
         {
