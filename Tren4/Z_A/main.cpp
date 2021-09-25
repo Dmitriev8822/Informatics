@@ -9,15 +9,15 @@ int main()
     int N;
     int A[100000];
     cin >> N;
-    for(int j=0; j<N; j++)
+    for(int j = 0; j < N; j++)
         cin >> A[j];
 
-    int cnt=0;
-    for(int j=0; j<N; j++)
+    int cnt = 0;
+    for(int j = 0; j < N; j++)
     {
         int index = j;
         int summ;
-        for(int k=0; k<N; k++)
+        for(int k = 0; k < N; k++)
         {
             summ += A[index];
             if(summ <= 0)
@@ -29,6 +29,6 @@ int main()
         if(summ > 0)
             cnt ++;
     }
-    cout << cnt << endl;
+    cout << cnt << " ";
     return 0;
 }
