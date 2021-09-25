@@ -17,7 +17,8 @@ int main()
     {
         int index = j;
         int summ;
-        for(int k=0; k<N; k++)
+        int n = N-1;
+        for(int k=0; k<n; k++)
         {
             summ += A[index];
             if(summ <= 0)
