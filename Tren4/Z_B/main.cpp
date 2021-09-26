@@ -5,10 +5,10 @@ using namespace std;
 int main()
 {
     int n;
-    int rbuf[10001];
-    int i = -1;
-    int lbuf[10001];
-    int j = -1;
+    int buf[100000];
+    int i = 50000;
+    int j = 50000;
+    buf[50000] = -1;
     cin >> n;
     for(int e = 0; e < n; e++)
     {
@@ -18,27 +18,34 @@ int main()
         {
             int k;
             cin >> k;
-            if(x == 1)
+            if(buf[50000] == -1)
             {
-                j++;
-                lbuf[j] = k;
+                buf[50000] = k;
             }
-            if(x == 2)
+            else
             {
-                i++;
-                rbuf[i] = k;
+                if(x == 1)
+                {
+                    j--;
+                    buf[j] = k;
+                }
+                if(x == 2)
+                {
+                    i++;
+                    buf[i] = k;
+                }
             }
         }
         else
         {
             if(x == 3)
             {
-                cout << lbuf[j] << endl;
-                j--;
+                cout << buf[j] << endl;
+                j++;
             }
             if(x == 4)
             {
-                cout << rbuf[i] << endl;
+                cout << buf[i] << endl;
                 i--;
             }
         }
