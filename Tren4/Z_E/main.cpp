@@ -7,38 +7,36 @@ using namespace std;
 
 int cookie_n;
 int cookies[MAXNUM];
-//int cookies[] = {3,5};
-//int cookies[] = {3,5};
-//int values[MAXNUM];
-//bool ready[MAXNUM];
+int values[MAXNUM];
+bool ready[MAXNUM];
 
-int simple_solve(int x)
-{
-    if (x < 0) return INF;
-    if (x == 0) return 0;
-    int best = INF;
-    for (int j=0; j < cookie_n; j++)
-    {
-        int c = cookies[j];
-        best = min(best, simple_solve(x-c)+1);
-    }
-    return best;
-}
-
-//int solve(int x) {
+//int simple_solve(int x)
+//{
 //    if (x < 0) return INF;
 //    if (x == 0) return 0;
-//    if (ready[x]) return values[x];
 //    int best = INF;
-//    for (int j=0; j<cookie_n; j++)
+//    for (int j=0; j < cookie_n; j++)
 //    {
 //        int c = cookies[j];
-//        best = min(best, solve(x-c)+1);
+//        best = min(best, simple_solve(x-c)+1);
 //    }
-//    ready[x] = true;
-//    values[x] = best;
 //    return best;
 //}
+
+int fast_solve(int x) {
+    if (x < 0) return INF;
+    if (x == 0) return 0;
+    if (ready[x]) return values[x];
+    int best = INF;
+    for (int j=0; j<cookie_n; j++)
+    {
+        int c = cookies[j];
+        best = min(best, fast_solve(x-c)+1);
+    }
+    ready[x] = true;
+    values[x] = best;
+    return best;
+}
 
 int main()
 {
@@ -54,33 +52,12 @@ int main()
     cin >> n;
     for(int j = 0; j < n; j++)
         cin >> K[j];
-//    cookie_n = 2;
-//    int kmax = 0;
-//    for(int j = 0; j < n; j++)
-//        if(kmax < K[j])
-//            kmax = K[j];
-//
-//    values[0] = 0;
-//    for(int x = 0; x <= kmax; x++)
-//    {
-//        ready[x] = false;
-//        values[x] = INF;
-//        for(int i = 0; i < cookie_n; i++)
-//        {
-//            int cookie = cookies[k];
-//            if(x-cookie >= 0)
-//            {
-//                values[x] = min(values[x], values[x - cookie] + 1);
-//                ready[x] = true;
-//            }
-//        }
-//    }
 
     for(int j = 0; j < n; j++)
     {
         int k = K[j];
 
-        if(simple_solve(k) != INF)
+        if(fast_solve(k) != INF)
             cout << "1";
         else
             cout << "0";
