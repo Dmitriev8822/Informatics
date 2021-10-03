@@ -38,8 +38,10 @@ int main()
         int n = i;
         int num = comp(n);
         int cnt = sizee(num);
+        cout << "num = " << num << endl;
         for(int i = 0; i < cnt; i++)
         {
+            cout << num % 10 << " " << num % 100 / 10 << endl;
             if(num % 10 > num % 100 / 10)
                 f = false;
         }
