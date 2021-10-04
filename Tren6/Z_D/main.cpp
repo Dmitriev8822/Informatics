@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string>
+//#include <string>
 #include <vector>
 #include <algorithm>
 
@@ -11,6 +11,17 @@ typedef vector<string> StringList_t;
 StringList_t Tags;
 StringList_t HText;
 StringList_t Patterns;
+
+void tolowcase(char *p)
+{
+    std::locale loc;
+    while(*p != 0)
+    {
+        if(std::isupper(*p,loc))
+            *p = std::tolower(*p,loc);
+        p++;
+    }
+}
 
 void clear_tag(char* ps, StringList_t &dest)
 {
@@ -29,19 +40,18 @@ void clear_tag(char* ps, StringList_t &dest)
             if(*ps == '/')
                 ps++;
             pb = buf;
-            *pb = 0;
             continue;
         }
         if(*ps == '>')
         {
             *pb = 0;
             string tag(buf);
-            if(find(Tags.begin(),Tags.end(), tag) != Tags.end())
+            if(find(Tags.begin(),Tags.end(), tag) == Tags.end())
             {
                 *pm = ' ';
                  pm++;
-                *pm = 0;
             }
+            ps++;
             f = false;
             continue;
         }
@@ -49,17 +59,15 @@ void clear_tag(char* ps, StringList_t &dest)
         {
             *pb = *ps;
              pb++;
-            *pb = 0;
-             ps++;
         }
         else
         {
             *pm = *ps;
              pm++;
-            *pm = 0;
-             ps++;
         }
+        ps++;
     }
+    *pm = 0;
 }
 
 int main()
@@ -67,24 +75,30 @@ int main()
     char buf[256];
     int k;
     cin >> k;
+    cin.ignore();
     for(int j=0; j<k; j++)
     {
-        cin.getline(buf,255);
+        cin.getline(buf,255, '\n');
+        tolowcase(buf);
         string s(buf);
         Tags.push_back(s);
     }
     cin >> k;
+    cin.ignore();
     for(int j=0; j<k; j++)
     {
-        cin.getline(buf,255);
+        cin.getline(buf,254, '\n');
+        tolowcase(buf);
         clear_tag(buf,Tags);
         string s(buf);
         HText.push_back(s);
     }
     cin >> k;
+    cin.ignore();
     for(int j=0; j<k; j++)
     {
-        cin.getline(buf,255);
+        cin.getline(buf,254, '\n');
+        tolowcase(buf);
         string s(buf);
         Patterns.push_back(s);
     }
