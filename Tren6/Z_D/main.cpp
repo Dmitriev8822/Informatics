@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cstring>
+#include <vector>
 #include <algorithm>
 
 
@@ -9,40 +9,15 @@ typedef vector<string> StringList_t;
 
 StringList_t Tags;
 StringList_t HText;
-
- int k=0;
-char patterns[100][100];
-
-void add_pattern(char *p)
-{
-    for(int j=0; j<k; j++)
-    {
-        if(pattrns[j][0] == 0)
-        {
-            strcpy(patters[j],p);
-            return;
-        }
-    }
-}
-
-bool test_tag(char *p)
-{
-    for(int j=0; j<k; j++)
-    {
-        if(strcmp(p, patterns[j]) == 0)
-            return true;
-    }
-    return false;
-}
-
+StringList_t Patterns;
 
 void tolowcase(char *p)
 {
-    std::locale loc;
     while(*p != 0)
     {
-        if(std::isupper(*p,loc))
-            *p = std::tolower(*p,loc);
+        char c = *p;
+        if(c >= 'A' && c <= 'Z')
+            *p = c + 32;
         p++;
     }
 }
