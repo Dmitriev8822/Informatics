@@ -1,15 +1,13 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
+#include <cstring>
 
 
 using namespace std;
 
-typedef vector<string> StringList_t;
-
-StringList_t Tags;
-StringList_t HText;
-StringList_t Patterns;
+char* Tags[101];
+char* HText[101];
+char* Patterns[101];
+char fe = 0;
 
 void tolowcase(char *p)
 {
@@ -22,7 +20,19 @@ void tolowcase(char *p)
     }
 }
 
-void clear_tag(char* ps, StringList_t &dest)
+bool test_space_tag(char *tag, char **tags)
+{
+    while(1)
+    {
+        if(*tags == &fe)
+            return true;
+        if(strcmp(tag, *tags) == 0)
+            return false;
+        tags++;
+    }
+}
+
+void clear_tag(char *ps, char **tags)
 {
     char *pm = ps;
     char  buf[100];
@@ -44,8 +54,8 @@ void clear_tag(char* ps, StringList_t &dest)
         if(*ps == '>')
         {
             *pb = 0;
-            string tag(buf);
-            if(find(Tags.begin(),Tags.end(), tag) == Tags.end())
+
+            if(test_space_tag(buf, tags))
             {
                 *pm = ' ';
                  pm++;
@@ -75,22 +85,26 @@ int main()
     int k;
     cin >> k;
     cin.ignore();
+    Tags[0] = &fe;
     for(int j=0; j<k; j++)
     {
         cin.getline(buf,255, '\n');
         tolowcase(buf);
-        string s(buf);
-        Tags.push_back(s);
+        Tags[j] = new char[strlen(buf) + 1];
+        strcpy(Tags[j],buf);
+        Tags[j+1] = &fe;
     }
     cin >> k;
     cin.ignore();
+    HText[0] = &fe;
     for(int j=0; j<k; j++)
     {
         cin.getline(buf,254, '\n');
         tolowcase(buf);
         clear_tag(buf,Tags);
-        string s(buf);
-        HText.push_back(s);
+        HText[j] = new char[strlen(buf) + 1];
+        strcpy(HText[j],buf);
+        HText[j+1] = &fe;
     }
     cin >> k;
     cin.ignore();
@@ -98,25 +112,30 @@ int main()
     {
         cin.getline(buf,254, '\n');
         tolowcase(buf);
-        string s(buf);
-        Patterns.push_back(s);
+        Patterns[j] = new char[strlen(buf) + 1];
+        strcpy(Patterns[j],buf);
+        Patterns[j+1] = &fe;
     }
 
-    for(auto ptrn : Patterns)
+    char **ppatterns = &Patterns[0];
+    while(*ppatterns != &fe)
     {
-        int number_str = 0;
-        int res = 0;
-        for(auto src : HText)
+        for(int j=0; j < 100; j++)
         {
-            number_str++;
-            string::size_type found = src.find(ptrn);
-            if(found != string::npos)
+            char *pstr = HText[j];
+            if( pstr == &fe)
             {
-                res = number_str;
+                cout << 0 << endl;
                 break;
             }
+            char *p = strstr(pstr, *ppatterns);
+            if( p == NULL)
+                continue;
+            cout << j+1 << endl;
+            break;
         }
-        cout << res << endl;
+        ppatterns++;
     }
+
     return 0;
 }
