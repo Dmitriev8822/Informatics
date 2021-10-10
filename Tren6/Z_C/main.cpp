@@ -2,8 +2,8 @@
 
 using namespace std;
 
-#define M_max 11
-#define N_max 11
+#define M_max 1000
+#define N_max 1000
 #define STREET 1
 #define HOUSE  2
 #define GARDEN 3
