@@ -4,15 +4,24 @@ using namespace std;
 
 int main()
 {
-    int n;
-    cin >> n;
-    int sum = 0;
-    for(int i = 0; i < n; i++)
+    double in;
+    double out;
+    int pr;
+    cin >> in >> out >> pr;
+    double need = 0;
+    for(int i = 0; i < 10; i++)
     {
-        int x;
-        cin >> x;
-        sum += x-1;
+        need += out + out * pr;
+        out += out * (out / 100 * pr);
+        cout << out << endl;
     }
-    cout << sum+1 << endl;
+    in *= 10;
+    double res;
+    cout << "in = " << in << " out = " << out << endl;
+    res = need - in;
+    if(res <= 0)
+        cout << 0.00 << endl;
+    else
+        cout << res << endl;
     return 0;
 }
