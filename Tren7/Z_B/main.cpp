@@ -1,5 +1,4 @@
 #include <iostream>
-#include <stdlib.h>
 #include <cstring>
 #include <sstream>
 #include <iomanip>
@@ -58,6 +57,6 @@ int main()
         double v = strtod(s, NULL);
         stk[h++] = v;
     }
-    cout << fixed << setprecision(2) << stk[--h];
+    cout << fixed << setprecision(2) << stk[--h] << endl;
     return 0;
 }
