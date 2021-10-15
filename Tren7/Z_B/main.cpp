@@ -1,69 +1,63 @@
 #include <iostream>
-#include <string>
+#include <stdlib.h>
+#include <cstring>
+#include <sstream>
+#include <iomanip>
+
 
 using namespace std;
 
-int stk[5];
-
-bool containsAction(char c, const string &str)
-{
-    return (str.find(c) != string::npos);
-}
-
 int main()
 {
+    double stk[5];
     int h = 0;
+    char str[256];
+    cin.getline(str,255);
+    std::stringstream ss;
+    ss << str;
+    ss << " = ";
+
     while(1)
     {
-        bool f = true;
-        string inp;
-        cin >> inp;
-        try
+        char s[20];
+        ss >> s;
+        if(strcmp(s, "+") == 0)
         {
-            int res = stoi(inp);
-            stk[h++] = res;
-        }
-        catch(std::invalid_argument &e)
-        {
-            f = false;
-        }
-        catch(...)
-        {
-            f = false;
-        }
-        if(f)
-            continue;
-
-        if(containsAction('+', inp))
-        {
-            int a = stk[--h];
-            int b = stk[--h];
+            double b = stk[--h];
+            double a = stk[--h];
             stk[h++] = a+b;
+            continue;
         }
-        else if(containsAction('-', inp))
+        if(strcmp(s, "-") == 0)
         {
-            int a = stk[--h];
-            int b = stk[--h];
+            double b = stk[--h];
+            double a = stk[--h];
             stk[h++] = a-b;
+            continue;
         }
-        else if(containsAction('*', inp))
+        if(strcmp(s, "*") == 0)
         {
-            int a = stk[--h];
-            int b = stk[--h];
+            double b = stk[--h];
+            double a = stk[--h];
             stk[h++] = a*b;
+            continue;
         }
-        else if(containsAction('/', inp))
+        if(strcmp(s, "/") == 0)
         {
-            int a = stk[--h];
-            int b = stk[--h];
+            double b = stk[--h];
+            double a = stk[--h];
             if(b != 0)
                 stk[h++] = a/b;
             else
                 return -1;
+            continue;
         }
-        else
+        if(strcmp(s, "=") == 0)
             break;
+
+        double v = strtod(s, NULL);
+        stk[h++] = v;
     }
-    cout << stk[--h];
+    cout << fixed << setprecision(2) << stk[--h];
     return 0;
 }
