@@ -4,13 +4,12 @@ using namespace std;
 
 int main()
 {
-    int sum;
+    int sum = 0;
     int p;
     int q;
     int n;
     int m;
     cin >> p >> q >> n >> m;
-    //if(a == 0)
     for(int i = n; i <= m; i++)
     {
         if(i % 2 == 0)
@@ -18,8 +17,9 @@ int main()
         else
             sum += q;
     }
-    int minn = sum % 60;
     int ch = sum / 60;
-    cout << ch << " ch" << minn << " min";
+    int minn = sum - 60 * ch;
+
+    cout << ch << " ch " << minn << " min" << endl;
     return 0;
 }
