@@ -3,5 +3,4 @@ obj/
 *.o
 *.layout
 *.depend
-*.docx
 *.exe
