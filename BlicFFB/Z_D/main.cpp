@@ -22,19 +22,18 @@ bool test_div3()
 
 int main()
 {
-    int v;
-    cin >> v;
+    cin >> M;
     int j=0;
     for(; j<100; j++)
     {
-        M[j] = v%10;
-        v /= 10;
-        if(v == 0)
+        unsigned char c = M[j];
+        if(c == 0)
             break;
+        M[j] = c - '0';
     }
     me = j;
     bool f = false;
-    while(j > 0)
+    for(j=0; j < me; j++)
     {
         int t = M[j];
         for(int a = 9; a > t; a--)
@@ -49,13 +48,12 @@ int main()
         if(f)
             break;
         M[j] = t;
-        j--;
     }
-    v = 0;
-    for(int j = me; j >= 0; j--)
+    for(int j=0; j < me; j++)
     {
-        v = v*10 + M[j];
+        int t = M[j];
+        cout << t;
     }
-    cout << v << endl;
+    cout << endl;
     return 0;
 }
