@@ -2,12 +2,12 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Z_B" />
+		<Option title="Z_E" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/Z_B" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/Z_E" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -16,7 +16,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/Z_B" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/Z_E" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -33,12 +33,8 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="main.cpp" />
-<<<<<<< HEAD
-		<Extensions />
-=======
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
->>>>>>> 58b471f46cc9aaedf406e6ad5e393814e3e49244
 	</Project>
 </CodeBlocks_project_file>
