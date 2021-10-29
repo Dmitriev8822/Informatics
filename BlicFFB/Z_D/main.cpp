@@ -1,13 +1,8 @@
 #include <iostream>
 
 using namespace std;
-/*
-Признак делимости на 3.
-Число делится на 3 тогда и только тогда,
-когда сумма всех его цифр, также, делится на три.
-*/
 
-unsigned char M[10];
+unsigned char M[100];
 unsigned char me;
 
 bool test_div3()
