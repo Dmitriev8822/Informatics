@@ -2,7 +2,7 @@
 
 using namespace std;
 
-unsigned char M[100];
+unsigned char M[101];
 unsigned char me;
 
 bool test_div3()
@@ -19,7 +19,7 @@ int main()
 {
     cin >> M;
     int j=0;
-    for(; j<100; j++)
+    for(; j<101; j++)
     {
         unsigned char c = M[j];
         if(c == 0)

@@ -1,28 +1,36 @@
 #include <iostream>
 
 using namespace std;
-
-char buf[110];
-
-int main()
-{
-    int sum = 0;
-    cin.getline(buf, 101);
-    buf[0] = '9';
-    for(int i = 0; i < 110; i++)
-    {
-        if(buf[i] >= '0' && buf[i] <= '9')
-            sum += buf[i] - '0';
-    }
-    sum -= 9;
-    char n = '9';
-    while(1)
-    {
-        if((sum + (n - '0')) % 3 == 0)
-        {
-            buf[0] = n;
-            break;
-        }
-    }
-    return 0;
+int b[108];
+int main(){
+string a;
+cin >> a;
+int sum ,n;
+for(int i=0;i<a.size();i++){
+sum+=a[i]-'0';
+b[i]=a[i]-'0';
+}
+int ch=0;
+for(int i=0;i<a.size();i++){
+if(b[i]==9){ch++;}
+}
+if(ch==a.size()){
+b[a.size()]=0;
+for(int i=0;i<a.size();i++){
+cout << a[i];
+}
+return 0;
+}
+n=sum%3;
+int k=0;
+for(int i=0;i<a.size();i++){
+for(int j=9;j>b[i];j--){
+if((j-b[i])%(3-n)==0){
+b[i]=j;k=1;break;
+}
+}
+if(k==1){break;}}
+for(int i=0;i<a.size();i++){
+cout << b[i];
+}
 }

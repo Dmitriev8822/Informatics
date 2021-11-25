@@ -7,6 +7,6 @@ int main()
     char n = '9';
     cout << n << endl;
     n = n - '0' - 1 + '0';
-    cout << n+'0' << endl;
+    cout << n << endl;
     return 0;
 }
