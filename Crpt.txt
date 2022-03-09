@@ -1,0 +1,52 @@
+import blowfish
+from os import urandom
+from operator import xor
+
+my_key = b"Key must be between 4 and 56 bytes long."
+
+text_in = 'Hello мир!'
+
+
+def data_to_hex(sinn):
+    return ''.join(format(x, '02x') for x in sinn)
+
+
+def hex_to_data(str_in):
+    _iter = iter(str_in)
+    data = []
+    f = True
+    while f:
+        try:
+            s = next(_iter)
+            s += next(_iter)
+            data.append(int(s, 16))
+        except StopIteration:
+            f = False
+    return bytes(data)
+
+
+
+if __name__ == '__main__':
+    cipher = blowfish.Cipher(my_key)
+    data = text_in.encode('utf-8')
+    cnt_t = urandom(8)
+    nonce = int.from_bytes(cnt_t, "big")
+    enc_counter = blowfish.ctr_counter(nonce, f=xor)
+
+    data_encrypted = b"".join(cipher.encrypt_ctr(data, enc_counter))
+    str0 = data_to_hex(cnt_t)
+    str1 = data_to_hex(data_encrypted)
+    print(str0)
+    print(str1)
+
+    cnt_tt = hex_to_data(str0)
+    nonce = int.from_bytes(cnt_tt, "big")
+    dec_counter = blowfish.ctr_counter(nonce, f=xor)
+
+    data_encrypted = hex_to_data(str1)
+    data_decrypted = b"".join(cipher.decrypt_ctr(data_encrypted, dec_counter))
+    text_out = data_decrypted.decode('utf-8')
+    print(text_in)
+    print(text_out)
+    print(text_in == text_out)
+    pass
